@@ -1,0 +1,24 @@
+{
+  "name": "a1111111y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylegoines/a1111111y.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kylegoines/a1111111y/issues"
+  },
+  "homepage": "https://github.com/kylegoines/a1111111y#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0",
+    "scss": "^0.2.4"
+  }
+}

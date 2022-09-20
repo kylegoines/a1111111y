@@ -1,0 +1,108 @@
+h1 {
+  color: red;
+}
+
+:root {
+  --on: #6948ed;
+  --off: #555;
+  --scale: 16;
+  --toggle-width: calc(var(--scale) * 7.5px);
+  --toggle-height: calc(var(--scale) * 2.8125px);
+  --border-width: calc(var(--scale) * 0.5px);
+  --transition-time: 0.25s;
+}
+
+input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+label,
+.toggle-btn {
+  position: relative;
+  display: block;
+  //   margin-inline: auto;
+  cursor: pointer;
+
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+
+  color: var(--off);
+  background-color: currentColor;
+
+  border: var(--border-width) solid currentcolor;
+  border-radius: var(--toggle-height);
+
+  transition: color var(--transition-time) ease-out;
+}
+
+label::after,
+.toggle-btn::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+
+  /* 	Make it fit and make it round */
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+
+  /* 	Put it on the left */
+  left: 0;
+  transform: translateX(0);
+
+  /* 	Set the animation speed and easing */
+  transition: left var(--transition-time) ease-out,
+    transform var(--transition-time) ease-out;
+}
+
+input:checked + label {
+  color: var(--on);
+}
+
+input:checked + label::after {
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.is-pressed {
+  .toggle-btn {
+    color: var(--on);
+    &:after {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.toggle--button {
+  button {
+    // height: 45px;
+    // width: 45px;
+  }
+}
+
+.toggle--real-button {
+  background: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
